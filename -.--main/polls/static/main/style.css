@@ -1,130 +1,303 @@
+/* общее */
+
 body {
-    font-family: 'Raleway';
-    justify-content: center;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container {
-    height: 35vh; 
-    background-color: #004ff2;
-    color: white;
-}
-
-.content {
-    max-width: 70%;
-    margin: 0 auto; /* Центрирование контейнера content */
-    display: flex;
-    justify-content: space-between; /* Равномерное распределение пространства между элементами */
-    align-items: center; /* Центрирование по вертикали */
-    flex-wrap: wrap;
+	margin: 0px;
+	font-family: "LXGW WenKai TC", cursive;
+  	font-weight: 400;
+  	font-size: 16px;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: inline-block;
+    max-width: 150px;
+}
+
+
+/* containers */
+
+
+.container-1 {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.container-2-1 {
+	height: 40vh; 
+    background-color: #004ff2;
+    transform: translateY(-13px);
+}
+
+.container-2-2 {
+    max-width: 70%;
+    margin: 0 auto;
+    margin-bottom: -5px;
+}
+
+.container-2-3 {
+	max-width: 70%;
+    margin: 0 auto;
+}
+
+
+/* navbar */
+
 
 .navbar {
-    height: 5vh; 
-    background-color: white; /* Цвет фона меню */
-    display: flex; /* Используем flexbox для выравнивания содержимого */
-    align-items: center; /* Центрируем элементы по вертикали */
-    justify-content: center; /* Центрируем элементы по горизонтали */
-    font-size: 12px; /* Увеличенный размер шрифта */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-a.logo {
+.navbar-logo {
+	width: 120%;
+	margin-left: -13px;
+	transform: translateY(-3px);
 }
 
-.logo-icon {
-    width: 55%; 
-    margin-left: -5%; /* менять */
+.navbar-skufam {
+	width: 110%;
+	margin-left: -20px;
+	transform: translateY(-5px);
 }
 
-a.choose {
-    margin-left: -5%; /* менять */
+.navbar-space {
+    margin-left: auto;
 }
 
-.choose-icon {
-    width: 55%;
-    margin-left: -45%; /* менять */
+.navbar-space-text {
+	transform: translateY(-7px);
+	margin-right: 10px;
 }
 
-a.loopa {
-    height: 5vh;
-    width: 5vh;
-    background-color: black; /* Цвет фона */
-    display: block;
+.navbar-loopa {
+	height: 50px;
+	transform: translateY(-5px);
 }
 
-.navbar a {
-    color: #004ff2;
-    padding: 0 15px;
+.navbar-prof {
+	height: 50px;
+	transform: translateY(-5px);
 }
+
+.test2 {
+	background-color: #1b4ee9;
+}
+
+
+/* icon */
+
 
 .icon-container {
-    padding-top: 3px;
     display: flex;
     justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    height: 28%;
     width: 100%; /* Установить ширину в 100% для центрирования */
-}
-
-.icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    width: 65px; /* Ширина контейнера иконки */
-    height: 100%; /* Высота контейнера иконки */
-    margin: 10px;
+    font-size: 14px;
+    color: white;
 }
 
-.icon img {
-    width: 50px; /* Ширина иконки */
-    margin-bottom: 5px; /* Отступ между иконкой и текстом */
+
+/* icon-div */
+
+
+.icon-div {
+	max-height: 105px;
 }
 
-.icon p {
-    font-size: 10px; /* Размер шрифта для текста под иконкой */
-    color: white; /* Цвет шрифта для текста */
+.icon-div-family {
+	transform: translateY(11px);
+	max-height: 96px;
 }
 
-.icon-container div:hover {
+.icon-div-book {
+	transform: translateY(-7px);
+	max-height: 111px;
+}
+
+.icon-div-tax {
+	transform: translateY(-2px);
+	max-height: 105px;
+}
+
+.icon-div-house {
+	transform: translateY(-8px);
+	max-height: 112px;
+}
+
+.icon-div-square {
+	transform: translateY(-3px);
+	max-height: 108px;
+}
+
+.icon-div-dep {
+	transform: translateY(13px);
+	max-height: 92px;
+}
+
+
+/* icon-div-hover */
+
+
+.icon-div-hover:hover {
     transition: ease-in-out 0.15s;
-    transform: scale(1.1); /* Увеличиваем элемент при наведении */
-    z-index: 10; /* Поднимаем элемент над другими при наведении */
+    transform: translateY(3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для выделения при наведении */
 }
 
-.search-container {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
+.icon-div-hover-family:hover {
+	transition: ease-in-out 0.15s;
+    transform: translateY(12px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для выделения при наведении */
 }
 
-.search-container-left {
-    display: flex;
-    margin-left: 3%;
-    align-items: center;
-    width: 32%;
-    height: 100%;
+.icon-div-hover-book:hover {
+	transition: ease-in-out 0.15s;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для выделения при наведении */
 }
 
-.search-skuf {
-    width: 150px;
+.icon-div-hover-house:hover {
+	transition: ease-in-out 0.15s;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для выделения при наведении */
 }
 
-.search-container-right {
-    display: flex;
-    justify-content: flex-start; /* Выровнять содержимое справа налево */
-    align-items: center;
-    width: 68%;
-    height: 100%;
+.icon-div-hover-square:hover {
+	transition: ease-in-out 0.15s;
+    transform: translateY(0px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для выделения при наведении */
+}
+
+.icon-div-hover-dep:hover {
+	transition: ease-in-out 0.15s;
+    transform: translateY(16px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для выделения при наведении */
+}
+
+
+
+/* icon размеры */
+
+
+.icon {
+	width: 90%;
+}
+
+.icon-family {
+	width: 55%
+}
+
+.icon-book {
+	width: 91%;
+}
+
+.icon-reg {
+	width: 75%;
+}
+
+.icon-tax {
+	width: 76%;
+}
+
+.icon-house {
+	width: 91%;
+}
+
+.icon-square {
+	width: 79%;
+}
+
+.icon-dep {
+	width: 40%;
+}
+
+
+/* icon расположение текста */
+
+
+.icon-text {
+	transform: translateY(-15px);
+}
+
+.icon-text-family {
+	transform: translateY(-11px);
+}
+
+.icon-text-book {
+	transform: translateY(-23px);
+}
+
+.icon-text-reg {
+	transform: translateY(-16px);
+}
+
+.icon-text-tax {
+	transform: translateY(-14px);
+}
+
+.icon-text-house {
+	transform: translateY(-22px);
+}
+
+.icon-text-square {
+	transform: translateY(-17px);
+}
+
+
+/*  это короче старый настройнки семьи и депертаминта чуть что вернуть назад
+ 
+.icon-text-dep {
+	transform: translateY(-3px);
+} 
+
+.icon-text-family {
+	transform: translateY(-13px);
+}
+
+*/
+
+
+/* остальная штука в синем поле */
+
+
+.search-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.dima {
+	width: 16%;
+}
+
+.search-div {
+	display: flex;
+	align-items: center;
+	width: 65%;
+}
+
+.search {
+	width: 100%;
+	height: 35px;
+	border: none;
+	border-radius: 4px;
+	outline: none;
+	font-size: 19px;
+}
+
+.search-button {
+	font-size: 14px;
+	cursor: pointer;
+	margin-left: -8%;
 }
