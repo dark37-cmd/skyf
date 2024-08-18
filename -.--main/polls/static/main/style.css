@@ -1,0 +1,130 @@
+body {
+    font-family: 'Raleway';
+    justify-content: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 35vh; 
+    background-color: #004ff2;
+    color: white;
+}
+
+.content {
+    max-width: 70%;
+    margin: 0 auto; /* Центрирование контейнера content */
+    display: flex;
+    justify-content: space-between; /* Равномерное распределение пространства между элементами */
+    align-items: center; /* Центрирование по вертикали */
+    flex-wrap: wrap;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    height: 5vh; 
+    background-color: white; /* Цвет фона меню */
+    display: flex; /* Используем flexbox для выравнивания содержимого */
+    align-items: center; /* Центрируем элементы по вертикали */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    font-size: 12px; /* Увеличенный размер шрифта */
+}
+
+a.logo {
+}
+
+.logo-icon {
+    width: 55%; 
+    margin-left: -5%; /* менять */
+}
+
+a.choose {
+    margin-left: -5%; /* менять */
+}
+
+.choose-icon {
+    width: 55%;
+    margin-left: -45%; /* менять */
+}
+
+a.loopa {
+    height: 5vh;
+    width: 5vh;
+    background-color: black; /* Цвет фона */
+    display: block;
+}
+
+.navbar a {
+    color: #004ff2;
+    padding: 0 15px;
+}
+
+.icon-container {
+    padding-top: 3px;
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 28%;
+    width: 100%; /* Установить ширину в 100% для центрирования */
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 65px; /* Ширина контейнера иконки */
+    height: 100%; /* Высота контейнера иконки */
+    margin: 10px;
+}
+
+.icon img {
+    width: 50px; /* Ширина иконки */
+    margin-bottom: 5px; /* Отступ между иконкой и текстом */
+}
+
+.icon p {
+    font-size: 10px; /* Размер шрифта для текста под иконкой */
+    color: white; /* Цвет шрифта для текста */
+}
+
+.icon-container div:hover {
+    transition: ease-in-out 0.15s;
+    transform: scale(1.1); /* Увеличиваем элемент при наведении */
+    z-index: 10; /* Поднимаем элемент над другими при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для выделения при наведении */
+}
+
+.search-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-container-left {
+    display: flex;
+    margin-left: 3%;
+    align-items: center;
+    width: 32%;
+    height: 100%;
+}
+
+.search-skuf {
+    width: 150px;
+}
+
+.search-container-right {
+    display: flex;
+    justify-content: flex-start; /* Выровнять содержимое справа налево */
+    align-items: center;
+    width: 68%;
+    height: 100%;
+}

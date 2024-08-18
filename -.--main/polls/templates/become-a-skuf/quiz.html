@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Проходите тест</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quiz/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 60%;
+            max-width: 900px;
+            background-color: #004ff2;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .description {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .question-container {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .question-label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #0066cc;
+            color: white;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .question-label:hover {
+            background-color: #005bb5;
+            transform: scale(1.05);
+        }
+
+        .question-label input[type="radio"] {
+            display: none;
+        }
+
+        .question-label.selected {
+            background-color: #28a745; /* Зеленый цвет для выбранного ответа */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transition: ease-in-out 0.15s;
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Пройдите тест на скуфа</h1>
+
+        <div class="description">
+            <p>Тест состоит из 10 вопросов, каждый с 4 вариантами ответа.</p>
+            <p>Для получения удостоверения необходимо ответить правильно на все 10 вопросов.</p>
+        </div>
+
+        <form id="quiz-form" method="post" action="{% url 'start_test' %}">
+            {% csrf_token %}
+            <div class="question-container">
+                {% for field in form %}
+                    <div class="question">
+                        <p>{{ field.label }}</p>
+                        <div class="answers">
+                            {% for subfield in field %}
+                                <label class="question-label">
+                                    {{ subfield.tag }} {{ subfield.choice_label }}
+                                </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit" id="submit-btn" disabled>Отправить</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('quiz-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const labels = document.querySelectorAll('.question-label');
+
+            labels.forEach(label => {
+                label.addEventListener('click', function() {
+                    const input = this.querySelector('input[type="radio"]');
+                    const allLabels = this.closest('.answers').querySelectorAll('.question-label');
+
+                    allLabels.forEach(lbl => lbl.classList.remove('selected'));
+                    this.classList.add('selected');
+                    input.checked = true;
+
+                    // Проверяем, выбраны ли ответы на все вопросы
+                    checkAllAnswered();
+                });
+            });
+
+            function checkAllAnswered() {
+                const allAnswered = [...form.querySelectorAll('.question-container .answers')].every(answers => {
+                    return answers.querySelector('input[type="radio"]:checked');
+                });
+
+                submitBtn.disabled = !allAnswered;
+            }
+        });
+    </script>
+</body>
+</html>
